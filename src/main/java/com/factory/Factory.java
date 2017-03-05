@@ -28,7 +28,7 @@ public class Factory {
 
     public UserDAO getUserDAO() {
         if (userDAO == null) {
-            userDAO = (UserDAO) new ImplementUserDAO();
+            userDAO = new ImplementUserDAO();
         }
         return userDAO;
     }
@@ -36,13 +36,13 @@ public class Factory {
 
     public ProductDAO getProductDAO(){
         if (productDAO==null){
-            productDAO =(ProductDAO) new ImplementProductDAO();
+            productDAO = new ImplementProductDAO();
         }
         return productDAO;
     }
     public OrderDAO getOrderDAO(){
         if(orderDAO==null){
-            orderDAO = (OrderDAO) new ImplementOrderDAO();
+            orderDAO =  new ImplementOrderDAO();
         }
         return orderDAO;
     }

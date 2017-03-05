@@ -2,20 +2,23 @@ package com.sportNutritionShop.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
 
+
     public long getUser_id() {
         return user_id;
     }
+
 
     @Column(name = "user_name")
     public String getName() {
@@ -78,6 +81,15 @@ public class User implements Serializable {
 
 
     }
+    @OneToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable (name = "order", joinColumns = {@JoinColumn (name = "user_id")}, inverseJoinColumns = {@JoinColumn (name = "order_id")})
+    private Set<Order> orderSet = new HashSet<>();
 
+    public Set<Order> getOrderSet() {
+        return orderSet;
+    }
 
+    public void setOrderSet(Set<Order> orderSet) {
+        this.orderSet = orderSet;
+    }
 }

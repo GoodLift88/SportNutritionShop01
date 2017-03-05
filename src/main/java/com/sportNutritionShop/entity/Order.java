@@ -5,10 +5,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order implements Serializable {
     private long order_id;
-
 
 
     @Id
@@ -18,8 +17,6 @@ public class Order implements Serializable {
     public long getOrder_id() {
         return order_id;
     }
-
-
 
 
     public void setOrder_id(long order_id) {
@@ -36,5 +33,17 @@ public class Order implements Serializable {
 
     public Order() {
 
+    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable (name = "user", joinColumns = {@JoinColumn (name = "order_id")}, inverseJoinColumns = {@JoinColumn (name = "user_id")})
+     private User user;
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

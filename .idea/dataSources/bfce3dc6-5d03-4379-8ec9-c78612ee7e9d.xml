@@ -9,62 +9,74 @@
       <Visible>1</Visible>
     </schema>
     <schema id="5" parent="1" name="performance_schema"/>
-    <table id="6" parent="4" name="product"/>
-    <table id="7" parent="4" name="user"/>
-    <column id="8" parent="6" name="product_id">
+    <table id="6" parent="4" name="order"/>
+    <table id="7" parent="4" name="product"/>
+    <table id="8" parent="4" name="user"/>
+    <column id="9" parent="6" name="order_id">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="9" parent="6" name="product_name">
+    <key id="10" parent="6" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>order_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="11" parent="7" name="product_id">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="12" parent="7" name="product_name">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="10" parent="6" name="product_category">
+    <column id="13" parent="7" name="product_category">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="11" parent="6" name="product_price">
+    <column id="14" parent="7" name="product_price">
       <Position>4</Position>
       <DataType>DOUBLE(22)|8</DataType>
     </column>
-    <column id="12" parent="6" name="product_type">
+    <column id="15" parent="7" name="product_type">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="13" parent="6" name="product_weight">
+    <column id="16" parent="7" name="product_weight">
       <Position>6</Position>
       <DataType>DOUBLE(22)|8</DataType>
     </column>
-    <key id="14" parent="6" name="PRIMARY">
+    <key id="17" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="15" parent="7" name="user_id">
+    <column id="18" parent="8" name="user_id">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="7" name="user_email">
+    <column id="19" parent="8" name="user_email">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="17" parent="7" name="user_name">
+    <column id="20" parent="8" name="user_name">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="18" parent="7" name="user_cell_number">
+    <column id="21" parent="8" name="user_cell_number">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="19" parent="7" name="user_second_name">
+    <column id="22" parent="8" name="user_second_name">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <key id="20" parent="7" name="PRIMARY">
+    <key id="23" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>

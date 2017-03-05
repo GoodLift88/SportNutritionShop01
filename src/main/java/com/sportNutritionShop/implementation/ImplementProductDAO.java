@@ -18,18 +18,12 @@ import java.util.List;
 public class ImplementProductDAO implements ProductDAO {
     @Override
     public void addProduct(Product product) throws SQLException {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.save(product);
             session.getTransaction().commit();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
+        //    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
         }
 
     }
@@ -37,36 +31,23 @@ public class ImplementProductDAO implements ProductDAO {
 
     @Override
     public void updateProduct(Product product) throws SQLException {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.update(product);
             session.getTransaction().commit();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
 
     }
 
     @Override
     public void deleteProduct(Product product) throws SQLException {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {    session.beginTransaction();
             session.delete(product);
             session.getTransaction().commit();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
 
     }
@@ -158,18 +139,12 @@ public class ImplementProductDAO implements ProductDAO {
 
     @Override
     public List getAllProducts() throws SQLException {
-        Session session = null;
         List productsList = new ArrayList<Product>();
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             productsList = session.createCriteria(Product.class).list();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.OK_OPTION);
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return productsList;
 

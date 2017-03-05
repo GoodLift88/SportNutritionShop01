@@ -1,5 +1,6 @@
 package com.sportNutritionShop.test;
 
+import com.factory.Factory;
 import com.factory.HibernateUtil;
 
 import com.sportNutritionShop.entity.Order;
@@ -18,27 +19,21 @@ import java.time.Year;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        HibernateUtil.init();
 
-        sessionFactory.getCurrentSession();
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
 
 
         User user = new User();
 
-        session.save(user);
+        Factory.getInstance().getUserDAO().addUser(user);
         Product product = new Product();
-
-        session.save(product);
         Order order = new Order();
-        session.save(order);
+        Factory.getInstance().getOrderDAO().addOrder(order);
+        Factory.getInstance().getProductDAO().addProduct(product);
 
 
 
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.getCurrentSession();
+
 
 
     }
