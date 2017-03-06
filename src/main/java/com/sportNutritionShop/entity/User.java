@@ -81,9 +81,10 @@ public class User implements Serializable {
 
 
     }
-    @OneToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable (name = "order", joinColumns = {@JoinColumn (name = "user_id")}, inverseJoinColumns = {@JoinColumn (name = "order_id")})
     private Set<Order> orderSet = new HashSet<>();
+    @OneToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "user")
+
+
 
     public Set<Order> getOrderSet() {
         return orderSet;

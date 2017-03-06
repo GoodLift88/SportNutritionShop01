@@ -24,6 +24,12 @@ public class Main {
 
 
         User user = new User();
+        user.setName("Oleksandr");
+        user.setS_name("Shatrovskyi");
+        user.setEmail("asmoday@i.ua");
+        user.setNumber("096404896");
+        Order order1 = new Order();
+
 
         Factory.getInstance().getUserDAO().addUser(user);
         Product product = new Product();

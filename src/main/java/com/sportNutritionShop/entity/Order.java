@@ -34,9 +34,12 @@ public class Order implements Serializable {
     public Order() {
 
     }
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable (name = "user", joinColumns = {@JoinColumn (name = "order_id")}, inverseJoinColumns = {@JoinColumn (name = "user_id")})
-     private User user;
+
+    private User user;
+
+    @ManyToOne()
+    @JoinColumn(name = "order_id",insertable = false,updatable = false,referencedColumnName = "user_id")
+
 
 
     public User getUser() {
