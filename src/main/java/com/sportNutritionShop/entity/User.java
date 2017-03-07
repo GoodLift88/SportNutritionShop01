@@ -8,6 +8,17 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
+    private long user_id;
+    private String name;
+
+    private String s_name;
+    private String email;
+    private String number;
+
+    private Set<Order> orders =new HashSet<>();
+
+
+
 
 
     @Id
@@ -61,12 +72,6 @@ public class User implements Serializable {
         this.number = number;
     }
 
-    private long user_id;
-    private String name;
-
-    private String s_name;
-    private String email;
-    private String number;
 
     public User(long user_id, String name, String s_name, String email, String number) {
         this.user_id = user_id;
@@ -77,20 +82,22 @@ public class User implements Serializable {
 
     }
 
+
     public User() {
 
 
     }
-    private Set<Order> orderSet = new HashSet<>();
-    @OneToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "user")
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 
 
-
-    public Set<Order> getOrderSet() {
-        return orderSet;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrderSet(Set<Order> orderSet) {
-        this.orderSet = orderSet;
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
+
+
 }

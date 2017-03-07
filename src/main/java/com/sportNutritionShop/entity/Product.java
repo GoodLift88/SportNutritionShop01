@@ -2,6 +2,8 @@ package com.sportNutritionShop.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -12,6 +14,7 @@ public class Product implements Serializable {
     private String category;
     private double price;
     private double weight;
+    Set<Order> orders = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -82,5 +85,16 @@ public class Product implements Serializable {
 
     public Product() {
 
+    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "order_product",
+            joinColumns={@JoinColumn(name = "id")},
+            inverseJoinColumns={@JoinColumn(name = "order_id")})
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

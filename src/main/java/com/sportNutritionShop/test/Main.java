@@ -4,14 +4,11 @@ import com.factory.Factory;
 import com.factory.HibernateUtil;
 
 import com.sportNutritionShop.entity.Order;
-import com.sportNutritionShop.entity.Product;
 import com.sportNutritionShop.entity.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.Year;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Lekter on 28.02.2017.
@@ -22,20 +19,20 @@ public class Main {
         HibernateUtil.init();
 
 
-
-        User user = new User();
-        user.setName("Oleksandr");
-        user.setS_name("Shatrovskyi");
-        user.setEmail("asmoday@i.ua");
-        user.setNumber("096404896");
-        Order order1 = new Order();
+User user = new User();
+Order order = new Order();
 
 
-        Factory.getInstance().getUserDAO().addUser(user);
-        Product product = new Product();
-        Order order = new Order();
+
+
+
+
+
+
         Factory.getInstance().getOrderDAO().addOrder(order);
-        Factory.getInstance().getProductDAO().addProduct(product);
+        Factory.getInstance().getUserDAO().addUser(user);
+
+
 
 
 

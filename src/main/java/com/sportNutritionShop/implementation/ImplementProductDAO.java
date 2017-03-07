@@ -23,7 +23,7 @@ public class ImplementProductDAO implements ProductDAO {
             session.save(product);
             session.getTransaction().commit();
         } catch (Exception e) {
-        //    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.OK_OPTION);
         }
 
     }
