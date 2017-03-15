@@ -12,9 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Lekter on 28.02.2017.
- */
+
 public class Main {
 
     public static void main(String[] args) throws SQLException {
@@ -23,6 +21,10 @@ public class Main {
 
         User user01 = new User();
         User user02 = new User();
+        User user03 = new User();
+        User user04 = new User();
+
+
         Product product = new Product();
 
 
@@ -35,6 +37,7 @@ public class Main {
         Order order7 = new Order();
         Order order8 = new Order();
         Order order9 = new Order();
+        Order order10 = new Order();
 
 
         order1.setUser(user01);
@@ -45,7 +48,8 @@ public class Main {
         order6.setUser(user02);
         order7.setUser(user02);
         order8.setUser(user02);
-        order9.setUser(user02);
+        order9.setUser(user03);
+        order10.setUser(user04);
         Set<Order>orders=new HashSet<>();
         orders.add(order1);
         orders.add(order2);
@@ -57,6 +61,8 @@ public class Main {
 
         Factory.getInstance().getUserDAO().addUser(user01);
         Factory.getInstance().getUserDAO().addUser(user02);
+        Factory.getInstance().getUserDAO().addUser(user03);
+        Factory.getInstance().getUserDAO().addUser(user04);
 
         Factory.getInstance().getOrderDAO().addOrder(order1);
         Factory.getInstance().getOrderDAO().addOrder(order2);
@@ -67,6 +73,7 @@ public class Main {
         Factory.getInstance().getOrderDAO().addOrder(order7);
         Factory.getInstance().getOrderDAO().addOrder(order8);
         Factory.getInstance().getOrderDAO().addOrder(order9);
+        Factory.getInstance().getOrderDAO().addOrder(order10);
         Factory.getInstance().getProductDAO().addProduct(product);
 
 

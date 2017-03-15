@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/WebApp" />
+    <file type="web" url="file://$PROJECT_DIR$/webapp" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -13,6 +13,7 @@
       <set>
         <option value="$PROJECT_DIR$/HibernateAnotations/pom.xml" />
         <option value="$PROJECT_DIR$/WEB/pom.xml" />
+        <option value="$PROJECT_DIR$/WebApp/pom.xml" />
       </set>
     </option>
   </component>
