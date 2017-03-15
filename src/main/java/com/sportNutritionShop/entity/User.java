@@ -15,10 +15,7 @@ public class User implements Serializable {
     private String email;
     private String number;
 
-    private Set<Order> orders =new HashSet<>();
-
-
-
+    private Set<Order> orders = new HashSet<>();
 
 
     @Id
@@ -88,7 +85,10 @@ public class User implements Serializable {
 
     }
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany
+    @JoinTable(name = "user_orders",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "order_id")})
 
 
     public Set<Order> getOrders() {

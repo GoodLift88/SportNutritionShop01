@@ -52,5 +52,19 @@ public class ImplementOrderDAO implements OrderDAO {
 
     }
 
+    @Override
+    public List<Order> getAllOrders() throws SQLException {
+        List orderList = new ArrayList<Order>();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            orderList = session.createCriteria(Order.class).list();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.OK_OPTION);
+        }
+        return orderList;
+
+
+    }
+
 
 }

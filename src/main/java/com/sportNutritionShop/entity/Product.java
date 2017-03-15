@@ -14,7 +14,8 @@ public class Product implements Serializable {
     private String category;
     private double price;
     private double weight;
-    Set<Order> orders = new HashSet<>();
+   private Set<Order> orders = new HashSet<>();
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -97,4 +98,6 @@ public class Product implements Serializable {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
-}
+
+    }
+

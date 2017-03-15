@@ -7,11 +7,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "`order`")
-public class Order implements Serializable  {
+public class Order implements Serializable {
 
     private User user;
     private long order_id;
-    private Set<Product>products=new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 
 
     @Id
@@ -29,21 +29,23 @@ public class Order implements Serializable  {
     }
 
 
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="user_id")
+    @ManyToOne
+    @JoinTable(name = "user_orders",
+            joinColumns = {@JoinColumn(name = "order_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
     public User getUser() {
         return user;
     }
 
+
     public void setUser(User user) {
         this.user = user;
     }
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "order_product",
-            joinColumns={@JoinColumn(name = "order_id")},
-            inverseJoinColumns={@JoinColumn(name = "id")})
+            joinColumns = {@JoinColumn(name = "order_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id")})
     public Set<Product> getProducts() {
         return products;
     }
