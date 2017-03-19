@@ -15,6 +15,7 @@ public interface UserDAO {
     public User getUserByS_Name(String s_name) throws SQLException;
     public User getUserByName(String name) throws SQLException;
     public User getUserById(long user_id)throws SQLException;
+    public User getUserByPassword(String password)throws SQLException;
     public User getUserByNumber(String number) throws SQLException;
     public User getUserByMail (String email) throws SQLException;
     public List getAllUsers() throws SQLException;

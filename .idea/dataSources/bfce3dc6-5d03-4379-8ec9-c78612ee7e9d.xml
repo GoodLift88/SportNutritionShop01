@@ -108,32 +108,36 @@ order_id</ColNames>
       <Position>4</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="29" parent="9" name="user_second_name">
+    <column id="29" parent="9" name="pass">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <key id="30" parent="9" name="PRIMARY">
+    <column id="30" parent="9" name="user_second_name">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="31" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="10" name="user_id">
+    <column id="32" parent="10" name="user_id">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="10" name="order_id">
+    <column id="33" parent="10" name="order_id">
       <Position>2</Position>
       <DataType>BIGINT(19)|-5</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="33" parent="10" name="PRIMARY">
+    <key id="34" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id
 order_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="34" parent="10" name="FKkuspr37yv513ga1okogyxrb7m">
+    <foreign-key id="35" parent="10" name="FKkuspr37yv513ga1okogyxrb7m">
       <ColNames>user_id</ColNames>
       <RefSchemaName>new_db</RefSchemaName>
       <RefTableName>user</RefTableName>
@@ -142,7 +146,7 @@ order_id</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="35" parent="10" name="FKp2oo8w32cbx1yenu3u902xs9s">
+    <foreign-key id="36" parent="10" name="FKp2oo8w32cbx1yenu3u902xs9s">
       <ColNames>order_id</ColNames>
       <RefSchemaName>new_db</RefSchemaName>
       <RefTableName>order</RefTableName>

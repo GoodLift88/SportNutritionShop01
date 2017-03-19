@@ -98,6 +98,20 @@ public class ImplementUserDAO implements UserDAO {
 
     }
 
+    @Override
+    public User getUserByPassword(String password) throws SQLException {
+        User user = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query query = session.createQuery("FROM User WHERE password =:password");
+            query.setParameter("password", password);
+            user = (User) query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return user;
+    }
+
 
     @Override
     public User getUserByNumber(String number) throws SQLException {

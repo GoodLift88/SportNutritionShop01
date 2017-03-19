@@ -1,5 +1,6 @@
 package com.factory;
 
+import com.fasterxml.classmate.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,7 +12,8 @@ public class HibernateUtil {
 
     static {
         try{
-            sessionFactory =  new Configuration().configure().buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+
         }catch(Exception e){
             e.printStackTrace();
         }

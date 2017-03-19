@@ -14,6 +14,7 @@ public class User implements Serializable {
     private String s_name;
     private String email;
     private String number;
+    private String password;
 
     private Set<Order> orders = new HashSet<>();
 
@@ -70,13 +71,14 @@ public class User implements Serializable {
     }
 
 
-    public User(long user_id, String name, String s_name, String email, String number) {
+    public User(long user_id, String name, String s_name, String email, String number, String password) {
         this.user_id = user_id;
         this.name = name;
         this.s_name = s_name;
         this.email = email;
         this.number = number;
 
+        this.password = password;
     }
 
 
@@ -99,5 +101,12 @@ public class User implements Serializable {
         this.orders = orders;
     }
 
+    @Column(name = "pass")
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
